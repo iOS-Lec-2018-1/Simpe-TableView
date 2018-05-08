@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0529D51D2096D4BA00C7D56E /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0529D51C2096D4BA00C7D56E /* cat.png */; };
+		05BA66A620A16D240079B765 /* monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BA66A520A16D240079B765 /* monkey.png */; };
 		05C67FB02096B61500E82344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C67FAF2096B61500E82344 /* AppDelegate.swift */; };
 		05C67FB22096B61500E82344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C67FB12096B61500E82344 /* ViewController.swift */; };
 		05C67FB52096B61500E82344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C67FB32096B61500E82344 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		0529D51C2096D4BA00C7D56E /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		05BA66A520A16D240079B765 /* monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey.png; sourceTree = "<group>"; };
 		05C67FAC2096B61500E82344 /* Simple TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple TableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C67FAF2096B61500E82344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05C67FB12096B61500E82344 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		05C67FAE2096B61500E82344 /* Simple TableView */ = {
 			isa = PBXGroup;
 			children = (
+				05BA66A520A16D240079B765 /* monkey.png */,
 				0529D51C2096D4BA00C7D56E /* cat.png */,
 				05C67FAF2096B61500E82344 /* AppDelegate.swift */,
 				05C67FB12096B61500E82344 /* ViewController.swift */,
@@ -128,6 +131,7 @@
 			files = (
 				05C67FBA2096B61500E82344 /* LaunchScreen.storyboard in Resources */,
 				05C67FB72096B61500E82344 /* Assets.xcassets in Resources */,
+				05BA66A620A16D240079B765 /* monkey.png in Resources */,
 				0529D51D2096D4BA00C7D56E /* cat.png in Resources */,
 				05C67FB52096B61500E82344 /* Main.storyboard in Resources */,
 			);

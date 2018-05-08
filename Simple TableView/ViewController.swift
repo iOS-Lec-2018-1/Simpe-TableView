@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var myTableView: UITableView!
     var animals = ["Cow", "Pig", "Dog", "Rabbit", "Bird"]
     var country = ["KOR", "USA", "Japan", "Africa", "China"]
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,27 +40,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return "\(section) Section Header"
         }
     }
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 0 {
-            return "\(section) Section Footer"
-        } else {
-            return "\(section) Section Footer"
-        }
-    }
+//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        if section == 0 {
+//            return "\(section) Section Footer"
+//        } else {
+//            return "\(section) Section Footer"
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "Cell"
         let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
+        if indexPath.section == 0 {
         // cell에 image 넣기
-        let myImage = UIImage(named:"cat.png")
-        cell.imageView?.image = myImage
+            let myImage = UIImage(named:"cat.png")
+            cell.imageView?.image = myImage
+        } else {
+            let myImage = UIImage(named:"monkey.png")
+            cell.imageView?.image = myImage
+        }
         
         // cell에 text 넣기
         cell.textLabel?.text = animals[indexPath.row]
         
         // cell에 detailText 넣기
-        cell.detailTextLabel?.text = country[indexPath.row]
+//        cell.detailTextLabel?.text = country[indexPath.row]
+        cell.detailTextLabel?.text = String(indexPath.row)
         
         return cell
     }
@@ -75,10 +82,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(myAnimal)
         
         let alert = UIAlertController(title: myAnimal, message: "Section \(mySection), Row \(myRow)", preferredStyle: .actionSheet)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) {
+            (action: UIAlertAction) -> Void in
+            
+            // alertController 생성
+            let popup = UIAlertController(title: myAnimal, message: "", preferredStyle: .alert)
+            let popupAction = UIAlertAction(title: "Section \(mySection) Row \(myRow)", style: .default, handler:nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            popup.addAction(popupAction)
+            popup.addAction(cancelAction)
+            self.present(popup, animated: true, completion: nil)
+            
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    // cell의 높이 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        count = count + 1
+        print(count)
+        return 100.0
+    }
+ 
 }
 
 

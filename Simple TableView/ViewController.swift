@@ -94,7 +94,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             popup.addAction(popupAction)
             popup.addAction(cancelAction)
             self.present(popup, animated: true, completion: nil)
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var myTableView: UITableView!
-    var animals = ["Cow", "Pig", "Dog", "Rabbit", "Bird"]
-    var country = ["KOR", "USA", "Japan", "Africa", "China"]
+    var animalnames = ["Cat", "Monkey", "Dog"]
+    var animalimages = ["cat", "monkey", "dog"]
+    var animalLoc = ["부산시 양정동", "서울시 광화문", "제주시 서귀표"]
     var count = 0
     
     override func viewDidLoad() {
@@ -26,11 +27,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // UITableViewDataSoure
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return animalnames.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -54,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if indexPath.section == 0 {
         // cell에 image 넣기
-            let myImage = UIImage(named:"cat.png")
+            let myImage = UIImage(named:animalimages[indexPath.row])
             cell.imageView?.image = myImage
         } else {
             let myImage = UIImage(named:"monkey.png")
@@ -62,11 +63,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         // cell에 text 넣기
-        cell.textLabel?.text = animals[indexPath.row]
+        cell.textLabel?.text = animalnames[indexPath.row]
         
         // cell에 detailText 넣기
-//        cell.detailTextLabel?.text = country[indexPath.row]
-        cell.detailTextLabel?.text = String(indexPath.row)
+//        cell.detailTextLabel?.text = String(indexPath.row)
+        cell.detailTextLabel?.text = animalLoc[indexPath.row]
         
         return cell
     }
@@ -76,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let mySection = indexPath.section
         let myRow = indexPath.row
         
-        let myAnimal = animals[indexPath.row]
+        let myAnimal = animalnames[indexPath.row]
         
         print("I selected \(mySection) Section \(myRow) Row")
         print(myAnimal)
@@ -88,7 +89,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             // alertController 생성
             let popup = UIAlertController(title: myAnimal, message: "", preferredStyle: .alert)
-            let popupAction = UIAlertAction(title: "Section \(mySection) Row \(myRow)", style: .default, handler:nil)
+            let popupAction = UIAlertAction(title: "You selected Section \(mySection) Row \(myRow)", style: .default, handler:nil)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             popup.addAction(popupAction)
@@ -108,7 +109,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(count)
         return 100.0
     }
- 
 }
 
 
